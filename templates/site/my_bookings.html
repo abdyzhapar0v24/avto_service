@@ -1,0 +1,19 @@
+{% extends 'site/base.html' %}
+{% load static %}
+
+{% block title %}Мои записи - Автосервис{% endblock %}
+
+{% block content %}
+<h2>Мои записи</h2>
+<ul>
+    {% for booking in bookings %}
+    <li>
+        {{ booking.service.name }} у {{ booking.master.name }}
+        в {{ booking.branch.name }}
+        {{ booking.date }} {{ booking.time }} — {{ booking.status }}
+    </li>
+    {% empty %}
+    <li>Записей нет</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'site/base.html' %}
+{% load static %}
+
+{% block title %}Главная - Автосервис{% endblock %}
+
+{% block content %}
+<h1>Добро пожаловать в наш Автосервис!</h1>
+
+<h2>Филиалы:</h2>
+<ul>
+    {% for branch in branches %}
+    <li>{{ branch.name }} — {{ branch.address }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Сервисы:</h2>
+<ul>
+    {% for service in services %}
+    <li>{{ service.name }} — {{ service.price }}₽</li>
+    {% endfor %}
+</ul>
+
+<h2>Мастера:</h2>
+<ul>
+    {% for master in masters %}
+    <li>{{ master.name }} — {{ master.specialization }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

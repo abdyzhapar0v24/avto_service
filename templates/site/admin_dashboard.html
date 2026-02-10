@@ -1,0 +1,26 @@
+{% extends 'site/base.html' %}
+{% load static %}
+
+{% block title %}Панель администратора{% endblock %}
+
+{% block content %}
+<h1>Панель администратора</h1>
+
+<div class="cards">
+    <div class="card">
+        <h3>Мастера</h3>
+        <p>Добавляйте, редактируйте и удаляйте мастеров</p>
+        <a href="{% url 'admin-masters' %}">Перейти</a>
+    </div>
+    <div class="card">
+        <h3>Сервисы</h3>
+        <p>Управляйте услугами автосервиса</p>
+        <a href="{% url 'admin-services' %}">Перейти</a>
+    </div>
+    <div class="card">
+        <h3>Записи</h3>
+        <p>Просматривайте все записи клиентов</p>
+        <a href="{% url 'admin-bookings' %}">Перейти</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'site/base.html' %}
+{% load static %}
+
+{% block title %}Создать запись - Автосервис{% endblock %}
+
+{% block content %}
+<h2>Записаться на сервис</h2>
+<form method="POST">
+    {% csrf_token %}
+    <label>Выберите филиал:</label>
+    <select name="branch">
+        {% for branch in branches %}
+        <option value="{{ branch.id }}">{{ branch.name }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label>Выберите сервис:</label>
+    <select name="service">
+        {% for service in services %}
+        <option value="{{ service.id }}">{{ service.name }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label>Выберите мастера:</label>
+    <select name="master">
+        {% for master in masters %}
+        <option value="{{ master.id }}">{{ master.name }} ({{ master.specialization }})</option>
+        {% endfor %}
+    </select><br>
+
+    <label>Дата:</label>
+    <input type="date" name="date" required><br>
+
+    <label>Время:</label>
+    <input type="time" name="time" required><br>
+
+    <button type="submit">Записаться</button>
+</form>
+{% endblock %}
