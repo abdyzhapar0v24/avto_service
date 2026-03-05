@@ -1,0 +1,19 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Автосервис Admin{% endblock %}
+
+{% block branding %}
+<a href="{% url 'admin:index' %}">
+    <img src="{% static 'images/logo_admin.png' %}" alt="Logo" height="50" style="vertical-align: middle;">
+</a>
+<h1 id="site-name">Автосервис Admin</h1>
+{% endblock %}
+
+{% block extrastyle %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/admin_custom.css' %}">
+{% endblock %}
+
+{% block footer %}
+<p>© {{ now.year }} Автосервис. Все права защищены.</p>
+{% endblock %}
